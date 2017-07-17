@@ -1,11 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Instagram clone application, on the request of Silicon Straits Saigon for a Ruby Test
 
-Things you may want to cover:
-
-* Ruby version
+* Ruby version 5.1
 
 * System dependencies
 
