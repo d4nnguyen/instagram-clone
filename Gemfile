@@ -36,6 +36,10 @@ gem 'slim'
 gem "paperclip", "~> 5.0.0"
 # Use simple_form
 gem 'simple_form'
+# Use bootstrap
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+# Use jquery
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
