@@ -40,6 +40,8 @@ gem 'simple_form'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 # Use jquery
 gem 'jquery-rails'
+# User division
+gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
