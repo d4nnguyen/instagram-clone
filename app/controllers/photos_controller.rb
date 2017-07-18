@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_action :set_photo, only: [:show]  
   def index
     @photos = Photo.all.order(id: :desc)
   end
@@ -10,11 +11,13 @@ class PhotosController < ApplicationController
     redirect_to photos_path 
   end
   def show
-    @photo = Photo.find(params[:id])
   end
 
   private
   def photo_params  
     params.require(:photo).permit(:image)
-  end  
+  end
+  def set_photo
+    @photo = Photo.find(params[:id])
+  end
 end
