@@ -1,0 +1,9 @@
+.posts-wrapper.row
+  .post
+    .post-head
+      .name
+        | Dan Nguyen
+    .image.center-block
+      =image_tag @photo.image.url(:medium)
+    .text-center
+      =link_to "Cancel", photos_path

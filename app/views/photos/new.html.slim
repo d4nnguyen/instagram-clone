@@ -1,3 +1,6 @@
-= simple_form_for @photo do |f|
-  = f.input :image
-  = f.button :submit
+.form-wrapper
+  = simple_form_for @photo, html: { class: 'form-horizontal', multipart: true } do |f|
+    .form-group
+      = f.input :image
+    .form-group.text-center
+      = f.button :submit, class: 'btn-success'

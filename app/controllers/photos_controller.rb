@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   def index
-    @photos = Photo.all
+    @photos = Photo.all.order(id: :desc)
   end
   def new
     @photo = Photo.new
@@ -9,6 +9,10 @@ class PhotosController < ApplicationController
     @photo = Photo.create(photo_params)
     redirect_to photos_path 
   end
+  def show
+    @photo = Photo.find(params[:id])
+  end
+
   private
   def photo_params  
     params.require(:photo).permit(:image)
