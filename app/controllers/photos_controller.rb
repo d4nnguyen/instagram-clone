@@ -8,6 +8,7 @@ class PhotosController < ApplicationController
   end
   def create
     @photo = Photo.create(photo_params)
+    flash[:success] = "Your photo has been created!"
     redirect_to photos_path 
   end
   def show
