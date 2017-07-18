@@ -1,8 +1,2 @@
-.posts-wrapper.row
-  -@photos.each do |post|
-    .post
-      .post-head
-        .name
-          | Dan Nguyen
-      .image.center-block
-        =link_to (image_tag post.image.url(:medium), class:'img-responsive'), photo_path(post)
+-@photos.each do |photo|
+  = render 'photo', photo: photo

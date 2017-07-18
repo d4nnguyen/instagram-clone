@@ -1,0 +1,19 @@
+ .photos-wrapper
+  .photo
+    .photo-head
+      .thumb-img
+      .user-name
+        = photo.user.user_name
+      .time-ago
+        = time_ago_in_words photo.created_at
+    .image.center-block
+      = link_to (image_tag photo.image.url(:medium), class:'img-responsive'), photo_path(photo)
+    .photo-bottom
+      .caption
+        .comments id="comments_#{photo.id}" 
+          - if photo.comments
+            = render photo.comments, photo: photo
+    .comment-like-form.row
+      .comment-form.col-sm-11
+        = form_for([photo, photo.comments.build], remote: true) do |f|
+          = f.text_field :content, placeholder: 'Add a comment...', class: "comment_content", id: "comment_content_#{photo.id}"
