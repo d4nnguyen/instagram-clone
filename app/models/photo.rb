@@ -5,4 +5,10 @@ class Photo < ApplicationRecord
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   belongs_to :user
   has_many :comments, dependent: :destroy
+
+  def self.search(keyword)
+    if keyword
+      find(:all, :conditions => ['name LIKE ?', "%#{keyword}%"])
+    end
+  end
 end
