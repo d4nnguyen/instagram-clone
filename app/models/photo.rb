@@ -6,9 +6,7 @@ class Photo < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
 
-  def self.search(keyword)
-    if keyword
-      find(:all, :conditions => ['name LIKE ?', "%#{keyword}%"])
-    end
-  end
+  scope :search, ->(keyword){
+    joins(:comments).where("comments.content LIKE ?", "%##{keyword}%").order(id: :desc)
+  }
 end

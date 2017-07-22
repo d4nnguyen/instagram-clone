@@ -1,5 +1,11 @@
 .container-fluid
   .row
-    .col-md-12
+    .col-md-4
+    .col-md-4
       p
         =@user_name
+    .col-md-4
+  .row
+    - @user_photos.each do |photo|
+      .col-md-4
+        = link_to (image_tag photo.image.url(:medium), class:'profile-photo'), photo_path(photo)

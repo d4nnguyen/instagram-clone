@@ -2,7 +2,11 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: [:show]
   before_action :authenticate_user!  
   def index
-    @photos = Photo.all.order(id: :desc)
+    @photos = if params[:keyword]
+                Photo.search(params[:keyword])
+              else
+                Photo.all.order(id: :desc)
+              end
   end
   def new
     @photo = current_user.photos.build

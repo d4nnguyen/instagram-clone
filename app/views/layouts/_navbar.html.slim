@@ -5,8 +5,8 @@ nav.navbar.navbar-default
         = link_to "Instagram", root_path
     ul.nav.navbar-nav
       form.navbar-form.navbar-left
-        .form-group.
-          input.form-control placeholder="Search" type="text" /
+        = form_tag(photos_path, :method => "get") do
+          = text_field_tag :keyword, params[:keyword], placeholder: "Search"
     ul.nav.navbar-nav.navbar-right.list-inline
       - if user_signed_in?
         / li

@@ -1,9 +1,9 @@
- .photos-wrapper
+.photos-wrapper
   .photo
     .photo-head
       .thumb-img
       .user-name
-        = photo.user.user_name
+        = link_to photo.user.user_name, user_path(photo.user)
       .time-ago
         = time_ago_in_words photo.created_at
     .image.center-block
